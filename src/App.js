@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import {useState} from 'react'
 import './App.css';
+import ButtonPad
+ from './components/ButtonPad';
+const App = () => {
+  const [equation, setEquation] = useState('')
 
-function App() {
+  const settingEquation = newVal =>{
+    let val = equation + newVal
+    setEquation(val)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>{equation}</h3>
+     <ButtonPad addValue={settingEquation}/>
     </div>
   );
 }
