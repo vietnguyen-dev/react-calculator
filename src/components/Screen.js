@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const ScreenContainer = styled.div`
     background-color: grey;
     color: white;
-    height: 25px;
+    height: 50px;
     display: grid;
     grid-template-columns: 1fr
 `
