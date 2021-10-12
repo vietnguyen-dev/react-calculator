@@ -18,7 +18,7 @@ const Total = styled.p`
 const Screen = props => {
     return (
        <ScreenContainer>
-        {/* {props.equation} */}
+        {props.currentValue}
         <Total>{props.total}</Total>
        </ScreenContainer>
     )

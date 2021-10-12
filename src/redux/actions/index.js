@@ -1,42 +1,37 @@
-const continueCurrentNum = value =>{
+export const continueCurrentNum = value =>{
     return {
         type: 'CURRENT_NUM',
         value: value
     }
 }
 
-const add = value =>{
+export const operator = value =>{
     return {
-        type: 'ADD',
+        type: 'OPERATOR',
         value: value
     }
 }
 
-const subtract = value =>{
-    return{
-        type: 'SUBTRACT',
-        value: value
-    }
-}
-
-const multiply = value =>{
-    return{
-        type: 'MULTIPLY',
-        value: value
-    }
-}
-
-const divide = value =>{
-    return{
-        type: 'DIVIDE',
-        value: value
-    }
-}
-
-const equal = () =>{
+export const equal = () =>{
     return {
         type: 'EQUAL'
     }
 }
 
-export {continueCurrentNum, add, subtract, multiply, divide, equal}
+export const clear = () =>{
+    return{
+        type: 'CLEAR'
+    }
+}
+
+export const percent = () =>{
+    return {
+        type: 'PERCENT'
+    }
+}
+
+export const switchAbsoluteValue = () =>{
+    return{
+        type: 'SWITCH_ABSOLUTE_VALUE'
+    }
+}

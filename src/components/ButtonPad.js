@@ -1,6 +1,7 @@
 import React from 'react'
 import buttonValues from './buttonValues'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
 
 const ButtonGrid = styled.div`
     margin: 0 auto;
@@ -18,14 +19,12 @@ const CalculatorButton = styled.button`
 `
 
 const ButtonPad = props => {
-    const newVal = val =>{
-        props.addValue(val)
-    }
+    const dispatch = useDispatch()
 
     return (
         <ButtonGrid>
             {buttonValues.map(button =>
-                <CalculatorButton key={button.id} value={button.value} onClick={(e) => newVal(e.target.value)}>{button.value}</CalculatorButton>)}
+                <CalculatorButton key={button.id} value={button.value} onClick={() =>dispatch(button.action)}>{button.value}</CalculatorButton>)}
         </ButtonGrid>
     )
 }
