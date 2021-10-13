@@ -1,7 +1,8 @@
 const defaultState = {
     currentValue: '',
     total: 0,
-    operator: ''
+    operator: '',
+    equation: '',
 }
 
 const calculateTotal = (stringNum, intNum, operator) =>{
@@ -36,13 +37,17 @@ const switchValue = stringValue =>{
 const calculatorReducer = (state = defaultState, action) =>{
     switch(action.type){
         case 'CURRENT_NUM':
-            return {...state, currentValue: state.currentValue + action.value}
+            return {...state, currentValue: state.currentValue + action.value, equation: state.equation + action.value}
         case 'OPERATOR':
-            let operatorTotal = calculateTotal(state.currentValue, state.total, action.value)
-            return {...state, currentValue: '', total: operatorTotal, operator: action.value }
+            if (state.total === 0){
+                return {...state, currentValue: '', total: parseInt(state.currentValue, 10), operator: action.value , equation: state.equation + action.value}
+            } else {
+                let operatorTotal = calculateTotal(state.currentValue, state.total, action.value)
+                return {...state, currentValue: '', total: operatorTotal, operator: action.value , equation: state.equation + action.value}
+            }
         case "EQUAL":
             let equalTotal = calculateTotal(state.currentValue, state.total, state.operator)
-            return {...state, currentValue: '', total: equalTotal, operator: '' }
+            return {...state,currentValue: "", total: equalTotal, operator: '' }
         case 'CLEAR':
             return {...state, currentValue: '', total: 0, operator: ''}
         case 'PERCENT':
